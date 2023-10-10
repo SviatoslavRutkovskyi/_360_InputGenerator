@@ -61,8 +61,9 @@ public class Main {
 
     }
 
-    private static void generateBoard(
-            final int theRows, final int theCol, final double thePercentage, final boolean theArrayCheck) {
+    private static void generateBoard(final int theRows, final int theCol,
+                                      final double thePercentage,
+                                      final boolean theArrayCheck) {
         char[][] minefield = new char[theRows][theCol];
 
         for (int i = 0; i < theRows; i++) {
