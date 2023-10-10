@@ -3,6 +3,7 @@
  * Date: 10/10/2023
  * TCSS 360
  */
+
 import java.util.Scanner;
 
 public class Main {
@@ -21,6 +22,14 @@ public class Main {
         System.out.println("Hello world!");
 
         Scanner sc = new Scanner(System.in);
+        String arrayCheckS;
+        boolean arrayCheck;
+        do {
+            System.out.println("Make parameters into 2D Array? yes/no");
+            arrayCheckS = sc.nextLine();
+
+        } while (!arrayCheckS.equals("no") && !arrayCheckS.equals("yes"));
+        arrayCheck = arrayCheckS.equals("yes");
         String rand;
         do {
             System.out.println("Randomise parameters? yes/no");
@@ -36,7 +45,7 @@ public class Main {
             System.out.println("Mine Percentage: ");
             double percentage = sc.nextInt();
 
-            generateBoard(rows, col, percentage);
+            generateBoard(rows, col, percentage, arrayCheck);
         } else {
             System.out.println("# 0f boards: ");
             int boardNum = sc.nextInt();
@@ -44,7 +53,8 @@ public class Main {
                 int rows = (int) (Math.random() * PERCENTAGE);
                 int col = (int) (Math.random() * PERCENTAGE);
                 double percentage = Math.random() * PERCENTAGE;
-                generateBoard(rows, col, percentage);
+                generateBoard(rows, col, percentage, arrayCheck);
+                System.out.println();
             }
         }
 
@@ -52,9 +62,8 @@ public class Main {
     }
 
     private static void generateBoard(
-            final int theRows, final int theCol, final double thePercentage) {
+            final int theRows, final int theCol, final double thePercentage, final boolean theArrayCheck) {
         char[][] minefield = new char[theRows][theCol];
-
 
         for (int i = 0; i < theRows; i++) {
             for (int j = 0; j < theCol; j++) {
@@ -67,12 +76,24 @@ public class Main {
 
         }
         System.out.println(theRows + " " + theCol);
-        for (char[] chars : minefield) {
-            for (char aChar : chars) {
-                System.out.print(aChar);
+        if (theArrayCheck) {
+            for (char[] chars : minefield) {
+                System.out.print("{");
+                for (char aChar : chars) {
+                    System.out.print("'" + aChar + "',");
+                }
+                System.out.print("},\n");
             }
             System.out.println();
 
+        } else {
+            for (char[] chars : minefield) {
+                for (char aChar : chars) {
+                    System.out.print(aChar);
+                }
+                System.out.println();
+
+            }
         }
     }
 }
