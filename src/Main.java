@@ -3,7 +3,6 @@
  * Date: 10/10/2023
  * TCSS 360
  */
-
 import java.util.Scanner;
 
 public class Main {
@@ -19,7 +18,6 @@ public class Main {
      * @param theArgs passed in argument
      */
     public static void main(final String[] theArgs) {
-        System.out.println("Hello world!");
 
         Scanner sc = new Scanner(System.in);
         String arrayCheckS;
@@ -50,15 +48,14 @@ public class Main {
             System.out.println("# 0f boards: ");
             int boardNum = sc.nextInt();
             for (int i = 0; i < boardNum; i++) {
-                int rows = (int) (Math.random() * PERCENTAGE);
-                int col = (int) (Math.random() * PERCENTAGE);
+                int rows = (int) Math.ceil(Math.random() * PERCENTAGE);
+                int col = (int) Math.ceil(Math.random() * PERCENTAGE);
                 double percentage = Math.random() * PERCENTAGE;
                 generateBoard(rows, col, percentage, arrayCheck);
                 System.out.println();
             }
         }
-
-
+        System.out.println("0 0");
     }
 
     private static void generateBoard(final int theRows, final int theCol,
