@@ -52,7 +52,7 @@ public class Main {
                 int col = (int) Math.ceil(Math.random() * PERCENTAGE);
                 double percentage = Math.random() * PERCENTAGE;
                 generateBoard(rows, col, percentage, arrayCheck);
-                System.out.println();
+//                System.out.println();
             }
         }
         System.out.println("0 0");
@@ -83,7 +83,6 @@ public class Main {
                 System.out.print("},\n");
             }
             System.out.println();
-
         } else {
             for (char[] chars : minefield) {
                 for (char aChar : chars) {
